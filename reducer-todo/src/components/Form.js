@@ -4,6 +4,7 @@ export default function ToDoForm({ addToDo, clearCompleted }) {
     const [item, setItem] = useState('');
     const submitHandler = e => {
         e.preventDefault();
+        console.log(addToDo);
         addToDo(item);
         setItem('');
     };
