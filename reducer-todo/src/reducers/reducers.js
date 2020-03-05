@@ -1,35 +1,23 @@
-let initialState = {
+export const initialState = {
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
 }
 
-const firstAction = {
-    type: "CHANGE_ITEM",
-    payload: "help mom"
-}
-
-const changeComplete = {
-    type: "CHANGE_COMPLETE",
-    payload: true
-}
-
-export const reducer = (state, action) => {
-    // if(action.type === "CHANGE_ITEM"){
-    //     return { ...state, item: action.payload }
-    // }else if (action.type === "CHANGE_COMPLETE") {
-    //     return { ...state, completed: action.payload };
-    // }else {
-    //     return state;
-    // }
-    switch(action.type){
+export const toDoReducer = (state, action) => {
+    switch (action.type) {
         case "CHANGE_ITEM" :
-            return { ...state, item: action.payload }
+            return { ...state, item: action.payload, completed: false};
         case "CHANGE_COMPLETE" :
-            return { ...state, completed: action.payload };
+            return { ...state, completed: true };
+        case "CHANGE_ID" :
+            return { ...state, id: Date.now() };
         default:
             return state;
     }
 }
 
-let newState = reducer(initialState, firstAction, changeComplete);
+let currentState = initialState;
+const dispatch = action => {
+    currentState = toDoReducer(currentState, action);
+}
