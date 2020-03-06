@@ -12,8 +12,8 @@ export default function toDoReducer(state, action) {
     switch(action.type){
 
         case "ADD_TODO" :
-            const newState = { ...state, todos: [ ...state.todos, {item: action.payload, id: Date.now(), completed: false}]}
-            return newState;
+            const newState = { item: action.payload, id: Date.now(), completed: false}
+            return {...state, todos: [...state.todos, newState]};
 
         case "CLEAR_COMPLETE" :
             return{ ...state, todos: state.todos.filter((todo) => !todo.complete)
