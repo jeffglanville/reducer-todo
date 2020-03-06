@@ -8,7 +8,7 @@ export const initialState = {
     ]
 }
 
-export default function toDoReducer(state, action) {
+export default function toDoReducer(state=initialState, action) {
     switch(action.type){
 
         case "ADD_TODO" :
