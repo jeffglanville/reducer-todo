@@ -8,13 +8,13 @@ import toDoReducer, {initialState} from './components/Reducers';
 
 function App() {
   const [state, dispatch] = useReducer(toDoReducer, initialState);
-  const addTodo = (item) => dispatch({type: "ADD_TODO", payload: item})
+  const addToDo = (item) => dispatch({type: "ADD_TODO", payload: item})
   const toggleComplete = (id) => dispatch({type: "TOGGLE_COMPLETE", payload: id})
   const clearCompleted = () => dispatch({type: "CLEAR_COMPLETED"})
   return (
     <div className="App">
       <h1>To Do List</h1>
-      <Form addTodo={addTodo} clearCompleted={clearCompleted} />
+      <Form addToDo={addToDo} clearCompleted={clearCompleted} />
       <List todos={state.todos} toggleComplete={toggleComplete} />
     </div>
   );
