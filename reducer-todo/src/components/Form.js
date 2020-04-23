@@ -19,8 +19,8 @@ export default function ToDoForm( props ) {
             <form onSubmit={submitHandler}>
                 <div className="form-wrapper">
                     <input type="text" name="todo" value={item} onChange={e => setItem(e.target.value)} />
-                    <button type="submit">Submit</button>
-                    <button onClick={clearCompletedHandler}>Clear Completed</button>
+                    <button type="submit"> Submit</button>
+                    <button onClick={clearCompletedHandler}> Clear Completed</button>
                 </div>
             </form>
         </div>
