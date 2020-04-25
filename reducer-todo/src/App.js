@@ -1,16 +1,17 @@
-import React, {useReducer} from 'react';
-import './App.css';
-import Form from './components/Form';
-import List from './components/List';
-import toDoReducer, {initialState} from './components/Reducers';
-
-
+import React, { useReducer } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import List from "./components/List";
+import toDoReducer, { initialState } from "./components/Reducers";
 
 function App() {
   const [state, dispatch] = useReducer(toDoReducer, initialState);
-  const addToDo = (item) => dispatch({type: "ADD_TODO", payload: item})
-  const toggleComplete = (id) => dispatch({type: "TOGGLE_COMPLETE", payload: id})
-  const clearCompleted = () => dispatch({type: "CLEAR_COMPLETED"})
+  const addToDo = (item) => dispatch({ type: "ADD_TODO", payload: item });
+  const toggleComplete = (id) => {
+    console.log(id);
+    dispatch({ type: "TOGGLE_COMPLETE", payload: id });
+  };
+  const clearCompleted = () => dispatch({ type: "CLEAR_COMPLETED" });
   return (
     <div className="App">
       <h1>To Do List</h1>

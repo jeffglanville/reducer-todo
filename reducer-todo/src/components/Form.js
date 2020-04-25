@@ -9,11 +9,7 @@ export default function ToDoForm( props ) {
         setItem('');
     };
 
-    console.log(props)
-    const clearCompletedHandler = e => {
-        e.preventDefault();
-        props.clearCompleted();
-    };
+   
 
     return (
         <div>
@@ -21,7 +17,7 @@ export default function ToDoForm( props ) {
                 <div className="form-wrapper">
                     <input type="text" name="todo" value={item} onChange={e => setItem(e.target.value)} />
                     <button type="submit"> Submit</button>
-                    <button onClick={clearCompletedHandler}> Clear Completed</button>
+                    <button type="button" onClick={props.clearCompleted}> Clear Completed</button>
                 </div>
             </form>
         </div>
