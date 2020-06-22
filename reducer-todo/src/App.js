@@ -9,7 +9,7 @@ function App() {
   const addToDo = (item) => dispatch({ type: "ADD_TODO", payload: item });
   const toggleComplete = (id) => {
     console.log(id);
-    dispatch({ type: "TOGGLE_COMPLETE", payload: id });
+    dispatch({ type: "TOGGLE_COMPLETE", id: id });
   };
   const clearCompleted = () => dispatch({ type: "CLEAR_COMPLETED" });
   return (

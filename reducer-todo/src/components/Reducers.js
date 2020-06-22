@@ -23,12 +23,17 @@ export default function toDoReducer(state = initialState, action) {
 
     case "TOGGLE_COMPLETE": {
       return {
+        // ...state,
+        // todos: state.todos.map((todo) => {
+        // // console.log("toggle", todo.id, action.payload);
+        //   todo.id === action.payload ? { ...todo, completed: !todo.completed }: todo
+        // }
+        // )
         ...state,
-        todos: state.todos.map((todo) =>
-          todo.id === action.payload
-            ? { ...todo, completed: !todo.completed }
-            : todo
+        todos: state.todos.map(todo =>
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
         ),
+
       };
     }
     default:
